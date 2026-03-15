@@ -1,0 +1,33 @@
+$nomention
+
+$c[ For more information about API KEY, Visit -> https://dadocs.rickyjs.xyz/ ]
+
+$addContainer[si;$getRoleColor[$highestRole]]
+$addTextDisplay[### $serverName[$guildID];si]
+$addSeparator[true;;si]
+$httpAddHeader[apikey;$getVar[ApiKey]]
+$httpAddHeader[bot-token;$getVar[BotToken]]
+$httpAddHeader[guild-id;$guildID]
+$httpGet[https://bdfddata.rickyjs.xyz/release/guild/members?simple=true]
+$addTextDisplay[__Members Info__
+Total users: $httpResult[details;count;total]
+Humans: $httpResult[details;count;users] Bots: $httpResult[details;count;bots]
+🟢 $membersCount[online] ⚪ $membersCount[offline]
+🟡 $membersCount[idle] 🔴 $membersCount[dnd];si]
+$addSeparator[true;;si]
+$addTextDisplay[__Boost Info__
+Boost Count: $boostCount
+Boost Level: $boostLevel;si]
+$addSeparator[true;;si]
+$addTextDisplay[__Other Info__
+Highest Role: $roleName[$highestRole]
+Server Owner: $displayName[$serverOwner] ($username[$serverOwner])
+Role Count: $roleCount
+Emoji Count: $emoteCount
+Catagory Count: $categoryCount
+Channel Count: $sub[$channelCount;$categoryCount]
+Verification Level: $serverVerificationLvl;si]
+$addSeparator[true;;si]
+$addActionRow[sirow;si]
+$addButtonCV2[serverIcon;Icon;secondary;false;;sirow]
+$addButtonCV2[serverBanner;Banner;secondary;false;;sirow]
